@@ -17,6 +17,9 @@
   ],
   "dependencies": {
     "MMD.js": "edvakf/MMD.js",
-    "requirejs": "~2.1.13"
+    "requirejs": "~2.1.13",
+    "underscore": "~1.6.0",
+    "jquery": "~2.1.1",
+    "backbone": "~1.1.2"
   }
 }

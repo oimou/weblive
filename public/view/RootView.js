@@ -1,11 +1,13 @@
 define(function (require) {
   'use strict';
 
-  var MikuModel = require('model/MikuModel');
+  var StageView = require('view/StageView');
+  var AudioView = require('view/AudioView');
 
   return Backbone.View.extend({
     initialize: function () {
-      this.miku = new MikuModel();
+      this.stageView = new StageView();
+      this.audioView = new AudioView();
     }
   });
 });

@@ -1,0 +1,10 @@
+# vim
+.*.swp
+.*~
+
+# node
+node_modules
+
+# project
+public/lib
+tmp

@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "MMD.js": "edvakf/MMD.js"
+    "MMD.js": "edvakf/MMD.js",
+    "requirejs": "~2.1.13"
   }
 }

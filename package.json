@@ -1,0 +1,23 @@
+{
+  "name": "weblive",
+  "version": "0.0.0",
+  "description": "WebLive! is a project to enjoy virtual live on web.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oimou/weblive.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oimou/weblive/issues"
+  },
+  "homepage": "https://github.com/oimou/weblive",
+  "dependencies": {
+    "express": "^4.3.2"
+  }
+}

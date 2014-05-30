@@ -1,5 +1,8 @@
-define([
-  'backbone'
+require([
+  'view/RootView'
 ], function () {
-  console.log('main');
+  'use strict';
+
+  var RootView = require('view/RootView');
+  var rootView = new RootView();
 });

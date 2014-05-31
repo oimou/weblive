@@ -1,4 +1,5 @@
 require([
+  'backbone',
   'js/shared',
   'view/RootView'
 ], function () {

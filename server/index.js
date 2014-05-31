@@ -11,4 +11,8 @@ server = app.listen(process.env.PORT || 3939);
 io = socketio(server);
 
 io.on('connection', function (socket) {
+  socket.on('miku:update', function (miku) {
+    console.log('receive:', miku);
+    socket.broadcast.emit('miku:update', miku);
+  });
 });

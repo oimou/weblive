@@ -1,21 +1,18 @@
 define(function (require) {
   'use strict';
 
-  var MikuModel = require('model/MikuModel');
+  require('backbone');
 
   return Backbone.View.extend({
     initialize: function () {
-      var size = 512
-      var canvas = document.createElement('canvas');
-      canvas.width = size;
-      canvas.height = size;
-      canvas.style.border = 'solid black 1px';
+      console.assert(App.miku);
 
-      document.body.appendChild(canvas);
+      var canvas = App.miku.canvas;
+      $('body').append(canvas);
+    },
 
-      this.miku = new MikuModel({}, {
-        canvas: canvas
-      });
+    setup: function () {
+      App.miku.setup();
     }
   });
 });

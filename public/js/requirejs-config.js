@@ -15,6 +15,10 @@ require.config({
   },
 
   shim: {
+    'backbone': {
+      exports: 'Backbone'
+    },
+
     'mmd': {
       deps: [
         'gl-matrix',
@@ -35,8 +39,6 @@ require.config({
       deps: ['backbone']
     }
   },
-
-  deps: ['backbone'],
 
   include: ['js/main']
 })

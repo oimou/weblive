@@ -8,14 +8,27 @@ define(function (require) {
     urlRoot: 'miku',
 
     initialize: function (attr, param) {
-      this.canvas = param.canvas;
+      var size = 512
+      var canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      canvas.style.border = 'solid black 1px';
+      this.canvas = canvas;
       this.initEvent();
-      this.initMMD();
-      this.onAdd();
+    },
+
+    //
+    //  called if it is primary miku
+    //
+    setup: function () {
+      //this.initMMD();
+      this.set({
+        ready: true,
+        name: 'miku' + Math.random()
+      });
     },
 
     initEvent: function () {
-      this.ioBind('create', App.socket, this.onCreate, this);
       this.ioBind('update', App.socket, this.onUpdate, this);
       this.on('change', _(this.onChange).bind(this));
     },
@@ -50,12 +63,8 @@ define(function (require) {
       App.socket.emit('miku:update', this.toJSON());
     },
 
-    onCreate: function (data) {
-      console.log(data);
-    },
-
     onUpdate: function (data) {
-      console.log(data);
+      this.set(data);
     }
   });
 });

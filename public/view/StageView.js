@@ -5,7 +5,17 @@ define(function (require) {
 
   return Backbone.View.extend({
     initialize: function () {
-      this.miku = new MikuModel();
+      var size = 512
+      var canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      canvas.style.border = 'solid black 1px';
+
+      document.body.appendChild(canvas);
+
+      this.miku = new MikuModel({}, {
+        canvas: canvas
+      });
     }
   });
 });

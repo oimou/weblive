@@ -9,3 +9,6 @@ app.use(express['static'](__dirname + '/../public'));
 server = app.listen(process.env.PORT || 3939);
 
 io = socketio(server);
+
+io.on('connection', function (socket) {
+});

@@ -2,23 +2,28 @@ define(function (require) {
   'use strict';
 
   require('mmd');
+  require('backbone.iobind');
 
   return Backbone.Model.extend({
-    initialize: function () {
+    urlRoot: 'miku',
+
+    initialize: function (attr, param) {
+      this.canvas = param.canvas;
+      this.initEvent();
+
       this.ioBind('create', App.socket, this.onCreate, this);
       this.ioBind('update', App.socket, this.onUpdate, this);
       this.initMMD();
+
+      this.onAdd();
+    },
+
+    initEvent: function () {
+      this.on('change', _(this.onChange).bind(this));
     },
 
     initMMD: function () {
-      var size = 512
-      var canvas = document.createElement('canvas');
-      canvas.width = size;
-      canvas.height = size;
-      canvas.style.border = 'solid black 1px';
-
-      document.body.appendChild(canvas);
-
+      var canvas = this.canvas;
       var mmd = new MMD(canvas, canvas.width, canvas.height);
       mmd.initShaders();
       mmd.initParameters();
@@ -34,14 +39,17 @@ define(function (require) {
         var dance = new MMD.Motion('lib/MMD.js/motion/kishimen.vmd');
         dance.load(function() {
           mmd.addModelMotion(miku, dance, true);
-
           mmd.play()
-
-          setInterval(function() {
-            console.log('fps = ' + mmd.realFps);
-          }, 1000);
         });
       });
+    },
+
+    onAdd: function () {
+      App.socket.emit('miku:create', this.toJSON());
+    },
+
+    onChange: function () {
+      App.socket.emit('miku:update', this.toJSON());
     },
 
     onCreate: function (data) {

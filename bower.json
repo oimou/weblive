@@ -21,6 +21,7 @@
     "jquery": "~2.1.1",
     "backbone": "~1.1.2",
     "MMD.js": "oimou/MMD.js",
-    "buffer-loader": "oimou/buffer-loader"
+    "buffer-loader": "oimou/buffer-loader",
+    "backbone.iobind": "~0.4.7"
   }
 }

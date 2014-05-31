@@ -5,7 +5,8 @@ define(function (require) {
 
   return Backbone.Model.extend({
     initialize: function () {
-      this.ioBind('update', App.socket, this.onUpdateSocket, this);
+      this.ioBind('create', App.socket, this.onCreate, this);
+      this.ioBind('update', App.socket, this.onUpdate, this);
       this.initMMD();
     },
 
@@ -43,7 +44,11 @@ define(function (require) {
       });
     },
 
-    onUpdateSocket: function (data) {
+    onCreate: function (data) {
+      console.log(data);
+    },
+
+    onUpdate: function (data) {
       console.log(data);
     }
   });

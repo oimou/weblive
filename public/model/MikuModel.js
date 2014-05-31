@@ -5,6 +5,7 @@ define(function (require) {
 
   return Backbone.Model.extend({
     initialize: function () {
+      this.ioBind('update', App.socket, this.onUpdateSocket, this);
       this.initMMD();
     },
 
@@ -40,6 +41,10 @@ define(function (require) {
           }, 1000);
         });
       });
+    },
+
+    onUpdateSocket: function (data) {
+      console.log(data);
     }
   });
 });

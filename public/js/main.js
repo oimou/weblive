@@ -1,4 +1,5 @@
 require([
+  'js/shared',
   'view/RootView'
 ], function () {
   'use strict';

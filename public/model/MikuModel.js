@@ -10,15 +10,13 @@ define(function (require) {
     initialize: function (attr, param) {
       this.canvas = param.canvas;
       this.initEvent();
-
-      this.ioBind('create', App.socket, this.onCreate, this);
-      this.ioBind('update', App.socket, this.onUpdate, this);
       this.initMMD();
-
       this.onAdd();
     },
 
     initEvent: function () {
+      this.ioBind('create', App.socket, this.onCreate, this);
+      this.ioBind('update', App.socket, this.onUpdate, this);
       this.on('change', _(this.onChange).bind(this));
     },
 

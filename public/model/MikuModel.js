@@ -8,10 +8,9 @@ define(function (require) {
     urlRoot: 'miku',
 
     initialize: function (attr, param) {
-      var size = 512
       var canvas = document.createElement('canvas');
-      canvas.width = size;
-      canvas.height = size;
+      canvas.width = $(window).width();
+      canvas.height = $(window).height();
       canvas.style.border = 'solid black 1px';
       this.canvas = canvas;
       this.initEvent();
@@ -21,7 +20,7 @@ define(function (require) {
     //  called if it is primary miku
     //
     setup: function () {
-      //this.initMMD();
+      this.initMMD();
       this.set({
         ready: true,
         name: 'miku' + Math.random()

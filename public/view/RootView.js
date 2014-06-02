@@ -13,7 +13,7 @@ define(function (require) {
       App.miku = new MikuModel();
 
       this.stageView = new StageView();
-      //this.audioView = new AudioView();
+      this.audioView = new AudioView();
       this.infoView = new InfoView();
 
       this.initEvent();

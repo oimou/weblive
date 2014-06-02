@@ -12,7 +12,11 @@ io = socketio(server);
 
 io.on('connection', function (socket) {
   socket.on('miku:update', function (miku) {
-    console.log('receive:', miku);
+    console.log('miku:', miku);
     socket.broadcast.emit('miku:update', miku);
+  });
+
+  socket.on('device:update', function (device) {
+    console.log('device:', device);
   });
 });

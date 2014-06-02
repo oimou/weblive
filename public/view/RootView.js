@@ -24,6 +24,7 @@ define(function (require) {
     },
 
     onClickSetupStage: function () {
+      App.device.set('type', 'stage');
       this.stageView.setup();
     }
   });

@@ -22,6 +22,7 @@
     "backbone": "~1.1.2",
     "MMD.js": "oimou/MMD.js",
     "buffer-loader": "oimou/buffer-loader",
-    "backbone.iobind": "~0.4.7"
+    "backbone.iobind": "~0.4.7",
+    "node-uuid": "broofa/node-uuid#~1.4.1"
   }
 }

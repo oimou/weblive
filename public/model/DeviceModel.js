@@ -1,7 +1,11 @@
 define(function (require) {
+  require('backbone');
+  var uuid = require('uuid');
+
   return Backbone.Model.extend({
     defaults: function () {
       return {
+        publicId: uuid.v4(),
         type: ''
       };
     },
@@ -15,7 +19,7 @@ define(function (require) {
     },
 
     onChangeType: function () {
-      App.socket.emit('device:update');
+      App.socket.emit('device:update', this.toJSON());
     }
   });
 });

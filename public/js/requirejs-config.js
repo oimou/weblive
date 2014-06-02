@@ -11,7 +11,8 @@ require.config({
     'sjis': 'lib/MMD.js/libs/sjis',
     'backbone.iobind': 'lib/backbone.iobind/dist/backbone.iobind.min',
     'backbone.iosync': 'lib/backbone.iobind/dist/backbone.iosync.min',
-    'socket.io': '/socket.io/socket.io'
+    'socket.io': '/socket.io/socket.io',
+    'uuid': 'lib/node-uuid/uuid'
   },
 
   shim: {

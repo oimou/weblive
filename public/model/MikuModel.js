@@ -37,7 +37,8 @@ define(function (require) {
 
     initMMD: function () {
       var canvas = this.canvas;
-      var mmd = new MMD(canvas, canvas.width, canvas.height);
+      var mmd = this.mmd = new MMD(canvas, canvas.width, canvas.height);
+      var cameraMotion = this.createCameraMotion();
       mmd.initShaders();
       mmd.initParameters();
       mmd.registerKeyListener(document);
@@ -52,9 +53,37 @@ define(function (require) {
         var dance = new MMD.Motion('lib/MMD.js/motion/kishimen.vmd');
         dance.load(function() {
           mmd.addModelMotion(miku, dance, true);
+          mmd.motionManager.addCameraMotion(cameraMotion, true);
           mmd.play()
         });
       });
+    },
+
+    /**
+     *  frame (=index)
+     *  interpolation
+     *  location
+     *  rotation
+     *  distance
+     *  view_angle
+     */
+    createCameraMotion: function () {
+      var motion = [];
+
+      for (var i = 0, len = 256; i < len; i++) {
+        var rad = (Math.PI / 128 * i) % (2 * Math.PI);
+
+        motion.push({
+          frame: i,
+          interpolation: [],
+          location: [0, 10, Math.sin(rad) * 50],
+          rotation: [0, 0, 0],
+          distance: 35,
+          view_angle: Math.PI
+        });
+      }
+
+      return motion;
     },
 
     onAdd: function () {

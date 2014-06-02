@@ -1,6 +1,7 @@
 define(function (require) {
   'use strict';
 
+  require('backbone');
   var BufferLoader = require('lib/buffer-loader/buffer-loader');
 
   return Backbone.Model.extend({

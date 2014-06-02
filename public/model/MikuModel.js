@@ -8,10 +8,12 @@ define(function (require) {
     urlRoot: 'miku',
 
     initialize: function (attr, param) {
-      var canvas = document.createElement('canvas');
-      canvas.width = $(window).width();
-      canvas.height = $(window).height();
-      this.canvas = canvas;
+      var $canvas = $('<canvas>', {
+        'class': 'stage',
+        width: $(window).width(),
+        height: $(window).height()
+      });
+      this.canvas = $canvas[0];
       this.initEvent();
     },
 

@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var jade = require('gulp-jade');
+var stylus = require('gulp-stylus');
 
 gulp.task('jade', function () {
   var YOUR_LOCALS = {};
@@ -9,8 +10,15 @@ gulp.task('jade', function () {
     .pipe(gulp.dest('./public/'))
 });
 
-gulp.task('watch', function () {
-  gulp.watch('./public/*.jade', ['jade']);
+gulp.task('stylus', function () {
+  gulp.src('./public/stylus/*.styl')
+    .pipe(stylus())
+    .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('default', ['jade']);
+gulp.task('watch', function () {
+  gulp.watch('./public/*.jade', ['jade']);
+  gulp.watch('./public/stylus/*.styl', ['stylus']);
+});
+
+gulp.task('default', ['jade', 'stylus']);

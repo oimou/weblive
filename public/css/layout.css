@@ -1,0 +1,6 @@
+.stage {
+  z-index: 10;
+}
+.control-panel {
+  z-index: 100;
+}

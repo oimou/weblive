@@ -10,8 +10,10 @@ define(function (require) {
     initialize: function (attr, param) {
       var $canvas = $('<canvas>', {
         'class': 'stage',
-        width: $(window).width(),
-        height: $(window).height()
+        attr: {
+          width: $(window).width(),
+          height: $(window).height()
+        }
       });
       this.canvas = $canvas[0];
       this.initEvent();

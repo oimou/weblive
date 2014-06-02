@@ -11,7 +11,6 @@ define(function (require) {
       var canvas = document.createElement('canvas');
       canvas.width = $(window).width();
       canvas.height = $(window).height();
-      canvas.style.border = 'solid black 1px';
       this.canvas = canvas;
       this.initEvent();
     },
